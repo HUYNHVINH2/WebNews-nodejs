@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- BEGIN SEO -->
+    <!-- Primary Meta Tags -->
+    <title>Template Sáng Tạo CR10, Giao Diện Chuẩn SEO | KhoTemplateVN</title>
+    <meta name="title" content="Template Sáng Tạo CR09, Giao Diện Chuẩn SEO | KhoTemplateVN">
+    <meta name="description"
+        content="KhoTemplate cung cấp đầy đủ mọi chức năng cho người dùng giúp việc quảng cáo thương hiệu, quảng cáo sản phẩm dễ dàng, chuẩn seo, chuẩn responsive...">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://khotemplate.vn/preview/template-tong-hop-login-logout-cr10/index.html">
+    <meta property="og:title" content="Template Sáng Tạo CR10, Giao Diện Chuẩn SEO | KhoTemplateVN">
+    <meta property="og:description"
+        content="KhoTemplate cung cấp đầy đủ mọi chức năng cho người dùng giúp việc quảng cáo thương hiệu, quảng cáo sản phẩm dễ dàng, chuẩn seo, chuẩn responsive...">
+    <meta property="og:image" content="img/template-tong-hop-login-logout-cr10.PNG">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url"
+        content="https://khotemplate.vn/preview/template-tong-hop-login-logout-cr10/index.html">
+    <meta property="twitter:title" content="Template Sáng Tạo CR10, Giao Diện Chuẩn SEO | KhoTemplateVN">
+    <meta property="twitter:description"
+        content="KhoTemplate cung cấp đầy đủ mọi chức năng cho người dùng giúp việc quảng cáo thương hiệu, quảng cáo sản phẩm dễ dàng, chuẩn seo, chuẩn responsive...">
+    <meta property="twitter:image" content="img/template-tong-hop-login-logout-cr10.PNG">
+    <!-- END SEO -->
+    <link rel="stylesheet" type="text/css" href="/logincss/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/logincss/fontawesome-all.min.css">
+    <link rel="stylesheet" type="text/css" href="/logincss/iofrm-style.css">
+    <link rel="stylesheet" type="text/css" href="/logincss/iofrm-theme8.css">
+</head>
+
+<body>
+        
+    <div class="form-body">
+        <div class="website-logo">
+            <a href="index.html">
+                <div class="logo">
+                    <img class="logo-size" src=" " alt="">
+                </div>
+            </a>
+        </div>
+        <div class="row">
+            <div class="img-holder">
+                <div class="bg"></div>
+                <div class="info-holder">
+                    <h3>Tham gia cùng chúng tôi</h3>
+                    <p>Mang đến nguồn tin nhanh chóng và chính xác</p>
+                    <img src="images/graphic4.svg" alt="">
+                </div>
+                <p>Check Nếu là admin</p>
+        <input id="admin" class=""type="checkbox" name="vehicle1" value="2"> 
+            </div>
+            
+            <div class="form-holder">
+                <div class="form-content">
+                    <div class="form-items">
+                        <div class="website-logo-inside">
+                            <a href="index.html">
+                                <div class="logo">
+                                    <img class="logo-size" src=" " alt="">
+                                </div>
+                            </a>
+                        </div>
+                        <div class="page-links">
+                            <a href="index.html" class="active">Đăng nhập</a><a href="/registerform">Đăng ký</a>
+                        </div>
+                      
+                        <form>
+                                
+                            <input id="username"class="form-control" type="text" name="username" placeholder="Tên đăng nhập"
+                                required>
+                            <input id="password" class="form-control" type="password" name="password" placeholder="Mật khẩu" required>
+                            <div class="form-button">
+                                <button id="submit"  class="ibtn">Đăng nhập</button> <a
+                                    href="forget8.html">Quên mật khẩu</a>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="/loginjs/jquery.min.js"></script>
+    <script src="/loginjs/popper.min.js"></script>
+    <script src="/loginjs/bootstrap.min.js"></script>
+    <script src="/loginjs/main.js"></script>
+
+    <script>
+        $(document).ready(function () {
+           
+            $("#submit").click(function () {
+                let role = 1;
+                if($("#admin")[0].checked == true) {
+                        role =2;
+                } 
+                var username = $("#username").val();
+                let password = $('#password').val();
+                $.ajax({
+                    type: 'post',
+                    url: `/login`,
+                    data: { username, password , role},
+                    dataType: "json",
+                    success: function (data) {
+                          console.log(data)
+                          localStorage.setItem("authorname",username);
+                          if(data.result === "1"){
+                            window.location.href  =   "/index-author";
+                          }else
+                          {
+                                 alert("bạn là admin");
+                            window.location.href  =   "   /get-view-admin";
+                          }
+                     
+                    }, error: function (err) {
+                        alert(err);
+                    }
+                })
+            })
+        })
+    </script>
+</body>
+
+</html>

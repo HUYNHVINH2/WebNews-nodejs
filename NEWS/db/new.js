@@ -6,6 +6,7 @@ const NewSchema = new Schema({
     image     : String,
     content   : String,
     author    : String,
+    type:String,
           
 });
 const newModel = mongoose.model('new', NewSchema );
