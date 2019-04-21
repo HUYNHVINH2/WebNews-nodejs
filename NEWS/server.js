@@ -39,7 +39,7 @@ app.get('/registerform', async (req, res) => {
 });
 
 app.get('/get-view-create-news', async (req, res) => {
-  res.render('template/dasboad-admin/email-compose')
+  res.render('template/dasboadadmin/email-compose')
 });
 app.get('/loginForm', async (req, res) => {
   res.render('template/login/index')
@@ -107,8 +107,8 @@ app.get('/index-author', async (req, res) => {
 
 })
 
-app.get('/get-dasboad-admin', async (req, res) => {
-  res.render('template/dasboad-admin/index');
+app.get('/get-dasboadadmin', async (req, res) => {
+  res.render('template/dasboadadmin/index');
 
 })
 
@@ -116,7 +116,7 @@ app.get('/get-view-update-new/:id', async (req, res) => {
   let id = req.params;
   let inforNew =  await News.findById(id.id)
   if(inforNew){
-    res.render('template/dasboad-admin/update-new-views', {data:inforNew
+    res.render('template/dasboadadmin/update-new-views', {data:inforNew
     });
   }
   
@@ -142,18 +142,18 @@ app.get('/get-all-infor-user', async (req, res) => {
 })
 
 app.get('/get-view-list-news', async (req, res) => {
-  res.render('template/dasboad-admin/data-tables');
+  res.render('template/dasboadadmin/data-tables');
 })
 
 app.get('/get-view-list-user', async (req, res) => {
-  res.render('template/dasboad-admin/list-all-user');
+  res.render('template/dasboadadmin/list-all-user');
 })
 app.get('/get-view-list-news-admin', async (req, res) => {
-  res.render('template/dasboad-admin/data-tables-admin');
+  res.render('template/dasboadadmin/data-tables-admin');
 })
 
 app.get('/get-view-admin', async (req, res) => {
-  res.render('template/dasboad-admin/admin');
+  res.render('template/dasboadadmin/admin');
 })
 
 app.post('/login', async (req, res) => {
