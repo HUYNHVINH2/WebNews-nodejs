@@ -1,4 +1,4 @@
-runtime: nodejs10
+runtime: nodejs10.15.0
 env: standard
 
 # This sample incurs costs to run on the App Engine flexible environment.
